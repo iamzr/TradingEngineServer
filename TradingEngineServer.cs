@@ -5,22 +5,30 @@ using TradingEngineServer.Core.Configuration;
 
 namespace TradingEngineServer.Core
 {
-    public class TradingEngineServer : BackgroundService, ITradingEngineServer
+    public sealed class TradingEngineServer : BackgroundService, ITradingEngineServer
     {
         private readonly ILogger<TradingEngineServer> _logger;
-        private readonly IOptions<TradingEngineServerConfiguration> _tradingEngineServerConfiguration;
+        private readonly TradingEngineServerConfiguration _tradingEngineServerConfiguration;
 
-        public TradingEngineServer(ILogger<TradingEngineServer> logger, IOptions<TradingEngineServerConfiguration> configuration)
+        public TradingEngineServer (ILogger<TradingEngineServer> logger, IOptions<TradingEngineServerConfiguration> configuration)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _tradingEngineServerConfiguration = configuration.Value ?? throw new ArgumentException(nameof(configuration);
+            _tradingEngineServerConfiguration = configuration.Value ?? throw new ArgumentException(nameof(configuration));
         }
+
+        // Added a Run method in order to expose the ExecuteAsync
+        // This method isn't needed exactly because the Microsoft Hosting package that will host this server as a 
+        // background service will run ExecuteAsync for us but this is kept here for completion.
+        public Task Run(CancellationToken token) => ExecuteAsync(token);
+
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             // Server loop
             while (!stoppingToken.IsCancellationRequested) {
 
             }
+
+            return Task.CompletedTask;
         }
     }
 }
