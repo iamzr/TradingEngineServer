@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "/home/zr/code/TradingEngineServer/TradingEngineServer.csproj",
-        "projectName": "TradingEngineServer",
+        "projectName": "TradingEngineServer.Core",
         "projectPath": "/home/zr/code/TradingEngineServer/TradingEngineServer.csproj",
         "packagesPath": "/home/zr/.nuget/packages/",
         "outputPath": "/home/zr/code/TradingEngineServer/obj/",
@@ -37,6 +37,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
