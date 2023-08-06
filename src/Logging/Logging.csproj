@@ -4,6 +4,9 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <LangVersion>11</LangVersion>
+      <RootNamespace>TradingEngineServer.Logging</RootNamespace>
+      <AssemblyName>TradingEngineServer.Logging</AssemblyName>
   </PropertyGroup>
 
 </Project>
