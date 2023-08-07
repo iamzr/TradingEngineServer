@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TradingEngineServer.Logging.LoggingConfiguration
 {
-    public class LoggingConfiguration
+    public class LoggerConfiguration
     {
         public LoggerType LoggerType { get; set; }
 
