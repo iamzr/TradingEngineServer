@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TradingEngineServer.Core
+namespace TradingEngineServer.Logging
 {
-    interface ITradingEngineServer
+    public interface ITextLogger: ILogger, IDisposable
     {
-        Task Run(CancellationToken token);
+        
     }
 }
