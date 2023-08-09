@@ -27,14 +27,14 @@ namespace TradingEngineServer.Core
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation($"Starting {(nameof(TradingEngineServer))}");
+            _logger.Information(nameof(TradingEngineServer), "Starting trading engine.");
 
             // Server loop
             while (!stoppingToken.IsCancellationRequested) {
 
             }
 
-            _logger.LogInformation($"Stopped {(nameof(TradingEngineServer))}");
+            _logger.Information(nameof(TradingEngineServer), "Stopping trading engine.");
 
             return Task.CompletedTask;
         }
