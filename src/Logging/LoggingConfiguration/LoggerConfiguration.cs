@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace TradingEngineServer.Logging.LoggingConfiguration
 {
+    /// <summary>
+    /// Class representing the Logger Configuration
+    /// </summary>
     public class LoggerConfiguration
     {
         public LoggerType LoggerType { get; set; }
@@ -14,10 +17,16 @@ namespace TradingEngineServer.Logging.LoggingConfiguration
         public TextLoggerConfiguration TextLoggerConfiguration { get; set; }
     }
 
+    /// <summary>
+    /// Representation of the Database Logger Configuration
+    /// </summary>
     public class DatabaseLoggerConfiguration
     {
     }
 
+    /// <summary>
+    /// Reprsentation of the Text Logger Configuration
+    /// </summary>
     public class TextLoggerConfiguration
     {
         public string Directory { get; set; }

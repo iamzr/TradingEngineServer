@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace TradingEngineServer.Logging
 {
+    /// <summary>
+    /// Interface for Logger
+    /// </summary>
     public interface ILogger
     {
         void Debug(string module, string message);

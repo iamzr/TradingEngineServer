@@ -10,10 +10,18 @@ using TradingEngineServer.Logging.LoggingConfiguration;
 
 namespace TradingEngineServer.Logging
 {
+    /// <summary>
+    /// Logger that saves logs to a text file.
+    /// </summary>
     public class TextLogger : AbstractLogger, ITextLogger
     {
         private readonly LoggerConfiguration _loggingConfiguration;
 
+        /// <summary>
+        /// Instantates a class of <see cref="TextLogger"/>
+        /// </summary>
+        /// <param name="loggingConfiguration"></param>
+        /// <returns></returns>
         public TextLogger(IOptions<LoggerConfiguration> loggingConfiguration) : base()
         {
             _loggingConfiguration = loggingConfiguration.Value ?? throw new ArgumentNullException(nameof(loggingConfiguration));

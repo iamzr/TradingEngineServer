@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace TradingEngineServer.Logging
 {
+    /// <summary>
+    /// Interface for Text Logger
+    /// </summary>
     public interface ITextLogger: ILogger, IDisposable
     {
-        
     }
 }
