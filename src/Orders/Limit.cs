@@ -51,7 +51,6 @@ namespace TradingEngineServer.Orders
 
         public uint GetLevelOrderQuantity()
         {
-
             uint orderQuantity = 0;
             OrderBookEntry headPointer = Head;
 
@@ -59,10 +58,32 @@ namespace TradingEngineServer.Orders
             {
                 orderQuantity += headPointer.CurrentOrder.CurrentQuantity;
                 headPointer = headPointer.Next;
-            } 
+            }
 
             return orderQuantity;
         }
 
+        public List<OrderRecord> GetLevelOrderRecords()
+        {
+            List<OrderRecord> orderRecords = new List<OrderRecord>();
+            uint theorticalQueuePosition = 0;
+            OrderBookEntry headPointer = Head;
+
+            while (headPointer != null)
+            {
+                var currentOrder = headPointer.CurrentOrder;
+                if (currentOrder.CurrentQuantity != 0)
+                {
+                    orderRecords.Add(new OrderRecord(currentOrder.OrderId,
+                    currentOrder.CurrentQuantity, Price, currentOrder.IsBuySide,
+                    currentOrder.Username, currentOrder.SecurityId, theorticalQueuePosition));
+                }
+
+                theorticalQueuePosition++;
+                headPointer = headPointer.Next;
+            }
+
+            return orderRecords;
+        }
     }
 }
