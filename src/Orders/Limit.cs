@@ -8,8 +8,8 @@ namespace TradingEngineServer.Orders
     public class Limit
     {
         public long Price { get; set; }
-        public OrderBookEntry Head { get; set; }
-        public OrderBookEntry Tail { get; set; }
+        public OrderbookEntry Head { get; set; }
+        public OrderbookEntry Tail { get; set; }
 
         public bool IsEmpty
         {
@@ -35,7 +35,7 @@ namespace TradingEngineServer.Orders
         public uint GetLevelOrderCount()
         {
             uint orderCount = 0;
-            OrderBookEntry headPointer = Head;
+            OrderbookEntry headPointer = Head;
 
             while (headPointer != null) 
             {
@@ -52,7 +52,7 @@ namespace TradingEngineServer.Orders
         public uint GetLevelOrderQuantity()
         {
             uint orderQuantity = 0;
-            OrderBookEntry headPointer = Head;
+            OrderbookEntry headPointer = Head;
 
             while (headPointer != null) 
             {
@@ -67,7 +67,7 @@ namespace TradingEngineServer.Orders
         {
             List<OrderRecord> orderRecords = new List<OrderRecord>();
             uint theorticalQueuePosition = 0;
-            OrderBookEntry headPointer = Head;
+            OrderbookEntry headPointer = Head;
 
             while (headPointer != null)
             {

@@ -5,20 +5,19 @@ using System.Threading.Tasks;
 
 namespace TradingEngineServer.Orders
 {
-    public class OrderBookEntry
+    public class OrderbookEntry
     {
-        public OrderBookEntry(Order currentOrder, Limit parentLimit)
+        public OrderbookEntry(Order currentOrder, Limit parentLimit)
         {
             CreationTime = DateTime.UtcNow;
-            CurrentOrder = currentOrder;            
+            CurrentOrder = currentOrder;
             ParentLimit = parentLimit;
         }
 
         public DateTime CreationTime { get; init; }
         public Order CurrentOrder { get; init; }
         public Limit ParentLimit  { get; init; }
-        public OrderBookEntry Next { get; set; }
-        public OrderBookEntry Previous { get; set; }
-        
+        public OrderbookEntry Next { get; set; }
+        public OrderbookEntry Previous { get; set; }
     }
 }
