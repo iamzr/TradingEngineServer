@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace TradingEngineServer.Orderbook
 {
+    /// <summary>
+    /// Interface that allows you to read from the Orderbook. 
+    /// </summary>
     public interface IReadOnlyOrderbook
     {
         bool ContainsOrder(long orderId);

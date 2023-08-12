@@ -6,6 +6,9 @@ using TradingEngineServer.Orders;
 
 namespace TradingEngineServer.Orderbook
 {
+    /// <summary>
+    /// Interface that allows to store the objects. 
+    /// </summary>
     public interface IOrderEntryOrderbook : IReadOnlyOrderbook
     {
         void AddOrder(Order order);
