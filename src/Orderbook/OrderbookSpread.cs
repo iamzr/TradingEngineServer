@@ -24,7 +24,6 @@ namespace TradingEngineServer.Orderbook
                 if (Bid.HasValue && Ask.HasValue)
                     return Ask.Value - Bid.Value;
                 else return null;
-                
             }
         }
     }
