@@ -112,7 +112,7 @@ namespace TradingEngineServer.Orderbook
                 if (!bidLimit.IsEmpty)
                 {
                     OrderbookEntry bidLimitPointer = bidLimit.Head;
-                    while (bidLimitPointer!= null)
+                    while (bidLimitPointer != null)
                     {
                         orderbookEntries.Add(bidLimitPointer);
                         bidLimitPointer = bidLimitPointer.Next;
@@ -126,8 +126,8 @@ namespace TradingEngineServer.Orderbook
         public OrderbookSpread GetSpread()
         {
             long? bestAsk = null, bestBid = null;
-            
-            if(_askLimits.Any() && !_askLimits.Min.IsEmpty)
+
+            if (_askLimits.Any() && !_askLimits.Min.IsEmpty)
             {
                 bestAsk = _askLimits.Min.Price;
             }
