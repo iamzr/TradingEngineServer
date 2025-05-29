@@ -17,12 +17,25 @@ This project is designed as the core component for a trading system, eventually 
 - Order Types: Additional order types such as market orders, stop-loss, and more complex conditional orders are planned.
 - Risk Management: Basic risk management features such as position limits, exposure control, and margin calculations will be incorporated in future iterations.
 
-## Installation
-### Prerequisites
-- .NET 7 SDK: The project requires .NET 7. You can download it from the official .NET website.
+## Setup 
+### Docker
+1. Clone this repository.
+2. Build and Run the Application
+
+```bash
+docker-compose up --build
+```
+
+3. Access the grpc api via: 
+```
+http://localhost:8000
+```
+
+### Local 
+#### Prerequisites
+- .NET 9 SDK: The project requires .NET 9. You can download it from the official .NET website.
 - A development environment like Visual Studio or VS Code (or any text editor).
 
-### Setup
 1. Clone this repository.
 2. Open the project in Visual Studio or your preferred C# IDE.
 3. Build the project to restore dependencies and compile the code.
