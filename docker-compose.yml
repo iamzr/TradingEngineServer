@@ -1,0 +1,8 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./src/Api.Grpc/Dockerfile
+    ports:
+      - 8000:8080
+    
