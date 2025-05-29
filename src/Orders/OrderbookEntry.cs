@@ -19,5 +19,11 @@ namespace TradingEngineServer.Orders
         public Limit ParentLimit  { get; init; }
         public OrderbookEntry Next { get; set; }
         public OrderbookEntry Previous { get; set; }
+
+        public override string ToString()
+        {
+            return $"Time created {CreationTime}, Current order{CurrentOrder.OrderId}, {ParentLimit.Price}";
+        }
     }
+
 }

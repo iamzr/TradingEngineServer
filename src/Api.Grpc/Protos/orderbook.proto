@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+option csharp_namespace = "Api.Grpc.Protos";
+
+service OrderbookService {
+  rpc PlaceOrder(OrderRequest) returns (OrderResponse);
+  // rpc NewOrder (NewOrderRequest) returns (OrderResponse);
+  // rpc CancelOrder (CancelOrderRequest) returns (OrderResponse);
+  // rpc ModifyOrder (ModifyOrderRequest) returns (OrderResponse);
+
+  rpc GetOrderbookSnapshot(OrderbookSnapshotRequest)
+      returns (OrderbookSnapshotResponse);
+  // rpc GetOrderStatus (OrderStatusRequest) returns (OrderStatusResponse);
+  // rpc StreamOrderbookUpdates (OrderbookUpdatesRequest) returns (stream
+  // OrderbookUpdate); rpc StreamTrades (TradesRequest) returns (stream Trade);
+}
+
+message OrderbookSnapshotRequest {
+  int32 securityId = 1;
+  uint32 depth = 2;     // Optional: how many levels to return
+}
+
+message OrderSummary {
+  double price = 1;
+  double quantity = 2;
+}
+
+message OrderbookSnapshotResponse {
+  repeated OrderSummary bids = 1; // Sorted by price descending
+  repeated OrderSummary asks = 2; // Sorted by price ascending
+  int32 securityId = 3;
+  int64 timestamp = 4; // Unix timestamp in ms
+}
+
+message OrderRequest {
+  oneof order {
+    NewOrderRequest newOrder = 1;
+    CancelOrderRequest cancelOrder = 2;
+    ModifyOrderRequest changeOrder = 3;
+  }
+}
+
+message OrderRequestCore {
+  int64 orderId = 1;
+  int32 securityId = 2;
+  string username = 3;
+}
+
+message NewOrderRequest {
+  OrderRequestCore orderCore = 1;
+  int64 price = 2;
+  uint32 quantity = 3;
+  bool isBuySide = 4;
+}
+
+message CancelOrderRequest { OrderRequestCore orderCore = 1; }
+
+message ModifyOrderRequest {
+  OrderRequestCore orderCore = 1;
+  int64 modifyPrice = 2;
+  uint32 modifyQuantity = 3;
+  bool isBuySide = 4;
+}
+
+message OrderResponse {
+  bool accepted = 1;
+  string message = 2;
+}
