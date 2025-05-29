@@ -14,7 +14,7 @@ namespace OrdersTests
         {
             Limit x = new Limit(10);
             Limit y = new Limit(9);
-        
+
             var comparer = new BidLimitComparer();
 
             var res = comparer.Compare(x, y);
@@ -25,8 +25,8 @@ namespace OrdersTests
         [Fact]
         public void Compare_XLessThanY_Returns1()
         {
-            Limit x = new Limit(10);
-            Limit y = new Limit(9);
+            Limit x = new Limit(9);
+            Limit y = new Limit(10);
 
             var comparer = new BidLimitComparer();
 
@@ -61,7 +61,7 @@ namespace OrdersTests
 
             var res = comparer.Compare(x, y);
 
-            Assert.True(res == 1);
+            Assert.True(res == -1);
         }
 
         [Fact]
