@@ -17,7 +17,7 @@ service OrderbookService {
 
 message OrderbookSnapshotRequest {
   int32 securityId = 1;
-  uint32 depth = 2;     // Optional: how many levels to return
+  uint32 depth = 2; // Optional: how many levels to return
 }
 
 message OrderSummary {
